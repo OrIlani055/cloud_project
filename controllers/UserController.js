@@ -25,9 +25,11 @@ class UserController {
 
     static async getID(req, res) {
         try {
-            let data = await DBcon.find({ id: req.params.id }, err => {
-                if (err) throw err;
-            });
+            let data = await user_repository.find({ Userid: req.params.Userid },
+                err => {
+                    if (err) throw err;
+                }
+            );
 
             res.status(200).json(data);
         } catch (err) {
@@ -38,7 +40,7 @@ class UserController {
 
     static async getAll(req, res) {
         try {
-            let data = await DBcon.find({}, err => {
+            let data = await user_repository.find({}, err => {
                 if (err) throw err;
             });
 
@@ -49,11 +51,13 @@ class UserController {
         }
     }
 
-    static async UpdateUser(req, res) {
+    static async updateUser(req, res) {
         try {
-            let obj = await DBcon.find({ userid: req.params.userid }, err => {
-                if (err) throw err;
-            });
+            let obj = await user_repository.find({ Userid: req.params.Userid },
+                err => {
+                    if (err) throw err;
+                }
+            );
             if (obj.length == 0) throw { msg: "error" };
             obj = obj[0];
 
@@ -66,7 +70,7 @@ class UserController {
             if (req.body.JobTitle) obj.JobTitle = req.body.JobTitle;
             if (req.body.JobAddress) obj.JobAddress = req.body.JobAddress;
 
-            let data = await DBcon.updateOne({ userid: req.params.userid },
+            let data = await user_repository.updateOne({ Userid: req.params.Userid },
                 obj,
                 err => {
                     if (err) throw err;
@@ -79,12 +83,14 @@ class UserController {
         }
     }
 
-    static async deleteContest(req, res) {
+    static async deleteUser(req, res) {
         try {
             console.log(req.body);
-            let deleteOne = await DBcon.deleteOne({ id: req.params.id }, err => {
-                if (err) throw err;
-            });
+            let deleteOne = await user_repository.deleteOne({ Userid: req.params.Userid },
+                err => {
+                    if (err) throw err;
+                }
+            );
             res.status(200).send("deleted");
         } catch (err) {
             console.log(err);

@@ -7,20 +7,20 @@ route.post("/createUser", (req, res) => {
     Usercontroller.createData(req, res);
 });
 
-route.get("/getAllContest", (req, res) => {
+route.get("/getAllUsers", (req, res) => {
     Usercontroller.getAll(req, res);
 });
 
-route.get("/getOneContest/:id", (req, res) => {
+route.get("/getOneUser/:Userid", (req, res) => {
     Usercontroller.getID(req, res);
 });
 
-route.put("/update/:id", (req, res) => {
-    Usercontroller.updateContest(req, res);
+route.put("/update/:Userid", (req, res) => {
+    Usercontroller.updateUser(req, res);
 });
 
-route.delete("/deleteOneContest/:id", (req, res) => {
-    contest.deleteContest(req, res);
+route.delete("/deleteOneUser/:Userid", (req, res) => {
+    Usercontroller.deleteUser(req, res);
 });
 
 route.get("/", (req, res) => {
