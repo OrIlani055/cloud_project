@@ -1,14 +1,10 @@
-const route = require("express").router();
+const route = require("express").Router();
 
-const Usercontroller = require("./controller/UserController");
-const Musiccontroller = require("./controller/MusicController");
+const Usercontroller = require("../controllers/UserController");
+const Musiccontroller = require("../controllers/MusicContoller");
 
-route.post("createUser", (req, res) => {
-    Usercontroller.createUser(req, res);
-});
-
-route.post("/createContest", (req, res) => {
-    Usercontroller.CreatData(req, res);
+route.post("/createUser", (req, res) => {
+    Usercontroller.createData(req, res);
 });
 
 route.get("/getAllContest", (req, res) => {

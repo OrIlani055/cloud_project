@@ -1,17 +1,17 @@
 const DBcon = require("../DB/connector");
 
 class UserController {
-    static async CreateUser(req, res) {
+    static async createData(req, res) {
         try {
             let obj = user({
-                Userid: req.body.id,
-                FirstName: req.body.nameOfSong,
-                LastName: req.body.country,
-                Age: req.body.year,
-                HomeAddress: req.body.psalmist,
-                JobTitle: req.body.composer,
-                JobAddress: req.body.performingTheSong,
-                CurrentLocation: req.body.musicalType
+                Userid: req.body.Userid,
+                FirstName: req.body.FirstName,
+                LastName: req.body.LastName,
+                Age: req.body.Age,
+                HomeAddress: req.body.HomeAddress,
+                JobTitle: req.body.JobTitle,
+                JobAddress: req.body.JobAddress,
+                CurrentLocation: req.body.CurrentLocation
             });
             await obj.save();
 
@@ -92,4 +92,4 @@ class UserController {
     }
 }
 
-module.exports = DBconController;
+module.exports = DBcon;
