@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require("./DBparam");
 
-const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/Contest?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/user_repository?retryWrites=true&w=majority`;
 const options = {
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -14,17 +15,17 @@ mongoose
 
 const { Schema, model } = require("mongoose");
 
-const contestantSchema = new Schema({
-    id: { type: Number },
-    nameOfSong: { type: String },
-    country: { type: String },
-    year: { type: Number },
-    psalmist: { type: String },
-    composer: { type: String },
-    performingTheSong: { type: String },
-    musicalType: { type: String }
+const userSchema = new Schema({
+    Userid: { type: Number },
+    FirstName: { type: String },
+    LastName: { type: String },
+    Age: { type: Number },
+    HomeAddress: { type: String },
+    JobTitle: { type: String },
+    JobAdress: { type: String },
+    CurrentLocation: { type: String }
 });
 
-const Contestant = model("Contestant", contestantSchema);
+const user = model("user", userSchema);
 
-module.exports = Contestant;
+module.exports = user;
