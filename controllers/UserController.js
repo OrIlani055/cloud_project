@@ -1,9 +1,9 @@
-const DBcon = require("../DB/connector");
+const user_repository = require("../DB/connector");
 
 class UserController {
     static async createData(req, res) {
         try {
-            let obj = user({
+            let obj = user_repository({
                 Userid: req.body.Userid,
                 FirstName: req.body.FirstName,
                 LastName: req.body.LastName,
@@ -13,6 +13,7 @@ class UserController {
                 JobAddress: req.body.JobAddress,
                 CurrentLocation: req.body.CurrentLocation
             });
+            console.log(obj);
             await obj.save();
 
             res.status(200).send("User-Created");
@@ -92,4 +93,4 @@ class UserController {
     }
 }
 
-module.exports = DBcon;
+module.exports = UserController;
