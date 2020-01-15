@@ -27,4 +27,29 @@ route.get("/", (req, res) => {
     res.status(200).send("hello");
 });
 
+
+//------------------------------------------------------//
+
+route.post("/createMusic", (req, res) => {
+    Musiccontroller.createData(req, res);
+});
+
+route.get("/getAllMusic", (req, res) => {
+    Musiccontroller.getAllMusic(req, res);
+});
+
+route.get("/getOneUser/:Userid", (req, res) => {
+    Musiccontroller.getIDMusic(req, res);
+});
+
+route.put("/update/:Userid", (req, res) => {
+    Musiccontroller.updateMusic(req, res);
+});
+
+route.delete("/deleteOneUser/:Userid", (req, res) => {
+    Musiccontroller.deleteMusic(req, res);
+});
+
+
+
 module.exports = route;

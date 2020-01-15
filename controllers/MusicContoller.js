@@ -20,22 +20,22 @@ class MusicController {
         }
     }
 
-    // static async getID(req, res) {
-    //     try {
-    //         let data = await user_repository.find({ Userid: req.params.Userid },
-    //             err => {
-    //                 if (err) throw err;
-    //             }
-    //         );
+    static async getIDMusic(req, res) {
+        try {
+            let data = await music_repository.find({ Userid: req.params.Userid },
+                err => {
+                    if (err) throw err;
+                }
+            );
 
-    //         res.status(200).json(data);
-    //     } catch (err) {
-    //         console.log(err);
-    //         res.status(500).send("Error occured");
-    //     }
-    // }
+            res.status(200).json(data);
+        } catch (err) {
+            console.log(err);
+            res.status(500).send("Error occured");
+        }
+    }
 
-    static async getAll(req, res) {
+    static async getAllMusic(req, res) {
         try {
             let data = await music_repository.find({}, err => {
                 if (err) throw err;
