@@ -1,14 +1,15 @@
-const music_repository = require("../DB/connector");
+const music_repository = require("../DB/connectorMusic");
 
 class MusicController {
     static async createMusicData(req, res) {
         try {
             let obj = music_repository({
-                Userid: req.body.Userid,
+                //_id: req.body._id,
+
                 MusicGenres1: req.body.MusicGenres1,
                 MusicGenres2: req.body.MusicGenres2,
                 MusicGenres3: req.body.MusicGenres3,
-                MusicGenres4: req.body.MusicGenres4,
+                MusicGenres4: req.body.MusicGenres4
             });
             console.log(obj);
             await obj.save();
@@ -22,11 +23,9 @@ class MusicController {
 
     static async getIDMusic(req, res) {
         try {
-            let data = await music_repository.find({ Userid: req.params.Userid },
-                err => {
-                    if (err) throw err;
-                }
-            );
+            let data = await music_repository.find({ _id: req.params._id }, err => {
+                if (err) throw err;
+            });
 
             res.status(200).json(data);
         } catch (err) {
@@ -50,22 +49,20 @@ class MusicController {
 
     static async updateMusic(req, res) {
         try {
-            let obj = await music_repository.find({ Userid: req.params.Userid },
-                err => {
-                    if (err) throw err;
-                }
-            );
+            let obj = await music_repository.find({ _id: req.params._id }, err => {
+                if (err) throw err;
+            });
             if (obj.length == 0) throw { msg: "error" };
             obj = obj[0];
 
             console.log(req.body);
 
-            if (req.body.MusicGenres1) obj.FirstName = req.body.MusicGenres1;
-            if (req.body.MusicGenres2) obj.LastName = req.body.MusicGenres2;
-            if (req.body.MusicGenres3) obj.Age = req.body.MusicGenres3;
-            if (req.body.MusicGenres4) obj.HomeAddress = req.body.MusicGenres4;
+            if (req.body.MusicGenres1) obj.MusicGenres1 = req.body.MusicGenres1;
+            if (req.body.MusicGenres2) obj.MusicGenres2 = req.body.MusicGenres2;
+            if (req.body.MusicGenres3) obj.MusicGenres3 = req.body.MusicGenres3;
+            if (req.body.MusicGenres4) obj.MusicGenres4 = req.body.MusicGenres4;
 
-            let data = await music_repository.updateOne({ Userid: req.params.Userid },
+            let data = await music_repository.updateOne({ _id: req.params._id },
                 obj,
                 err => {
                     if (err) throw err;
@@ -81,7 +78,7 @@ class MusicController {
     static async deleteMusic(req, res) {
         try {
             console.log(req.body);
-            let deleteOne = await music_repository.deleteOne({ Userid: req.params.Userid },
+            let deleteOne = await music_repository.deleteOne({ _id: req.params._id },
                 err => {
                     if (err) throw err;
                 }

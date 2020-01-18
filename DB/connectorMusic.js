@@ -15,17 +15,14 @@ mongoose
 
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema({
-    Userid: { type: Number },
-    FirstName: { type: String },
-    LastName: { type: String },
-    Age: { type: Number },
-    HomeAddress: { type: String },
-    JobTitle: { type: String },
-    JobAdress: { type: String },
-    CurrentLocation: { type: String }
+const musicUserSchema = new Schema({
+    UseridM: { type: Number },
+    MusicGenres1: { type: String },
+    MusicGenres2: { type: String },
+    MusicGenres3: { type: String },
+    MusicGenres4: { type: String }
 });
 
-const user = model("user", userSchema);
+const musicUser = model("musicUser", musicUserSchema);
 
-module.exports =user;
+module.exports = musicUser;
