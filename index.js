@@ -1,10 +1,9 @@
 var express = require("express");
-const fs = require('fs');
-const readline = require('readline');
 const {google} = require('googleapis');
 const route = require("./routes/api");
 const googlecon = require('./controllers/GoogleController');
 var app = express();
+
 
 googlecon.startauth();
 
