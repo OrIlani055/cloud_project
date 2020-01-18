@@ -1,4 +1,4 @@
-const user_repository = require("../DB/connector");
+const user_repository = require('../DB/connectorUser');
 
 class UserController {
     static async createData(req, res) {
