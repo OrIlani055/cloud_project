@@ -1,13 +1,12 @@
 const mongoose = require("mongoose");
-const { DB_USER, DB_PASS, DB_HOST } = require("./constants_music");
+//const { DB_USER, DB_PASS, DB_HOST } = require("./constants_music");
 
-const url = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}`;
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/user_repository?retryWrites=true&w=majority`;
 const options = {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
 };
-
 mongoose
     .connect(url, options)
     .then(db => console.log(`connected to: ${db.connection.name}`))

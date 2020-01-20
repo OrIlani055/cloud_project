@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const { DB_USER, DB_PASS, DB_HOST } = require("./constants_user");
+//const { DB_USER, DB_PASS, DB_HOST } = require("./constants_user");
 
-const url = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}`;
+const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/user_repository?retryWrites=true&w=majority`;
 const options = {
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -28,4 +28,4 @@ const userSchema = new Schema({
 
 const user = model("user", userSchema);
 
-module.exports =user;
+module.exports = user;
