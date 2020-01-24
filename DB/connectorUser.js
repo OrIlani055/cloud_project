@@ -15,6 +15,23 @@ mongoose
 
 const { Schema, model } = require("mongoose");
 
+const schema_Google = {
+
+    desc: String,       //merged my playlists
+                        //crete new playlist based on artist
+                        //merge playlist with another user
+    pl_1: String,       //1st PL id
+    pl_2: String,       //2nd PL id
+    pl_new: String,     //new PL id
+    uid_shares: String, //id of user who shared playlist
+                        //if not shared then null
+    art_id: String,     //artist id
+                        //if merge then null
+    art_name: String    //artist name
+}
+const Google = new mongoose.Schema(schema_Google)
+
+
 const userSchema = new Schema({
     Userid: { type: Number },
     FirstName: { type: String },
@@ -23,7 +40,7 @@ const userSchema = new Schema({
     HomeAddress: { type: String },
     JobTitle: { type: String },
     JobAdress: { type: String },
-    CurrentLocation: { type: String }
+    CurrentLocation: { type: String },
 });
 
 const user = model("user", userSchema);
