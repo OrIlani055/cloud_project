@@ -11,11 +11,11 @@ var port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/welcome", (req, res) => {
     res.send("welcome");
 });
 
-app.use("/api", route);
+app.use("/", route);
 
 app.listen(port, () => {
     console.log("running on port" + port);
