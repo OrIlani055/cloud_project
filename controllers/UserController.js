@@ -20,12 +20,12 @@ class UserController {
                 }
                 //CurrentLocation: req.body.CurrentLocation
                 /**   users from google api 
-                                                                                                                                                    Token: req.body.Token,
-                                                                                                                                                    Email: req.body.Email,
-                                                                                                                                                    Provider: req.body.Provider,
-                                                                                                                                                    Provide_id: req.body.Provide_id,
-                                                                                                                                                    Provide_pic: req.body.Provide_pic
-                                                                                                                                                    */
+                                                                                                                                                                            Token: req.body.Token,
+                                                                                                                                                                            Email: req.body.Email,
+                                                                                                                                                                            Provider: req.body.Provider,
+                                                                                                                                                                            Provide_id: req.body.Provide_id,
+                                                                                                                                                                            Provide_pic: req.body.Provide_pic
+                                                                                                                                                                            */
             });
             console.log(obj);
             await obj.save();
@@ -111,10 +111,10 @@ class UserController {
         try {
             console.log(req.body);
             /** let deleteOne = await user_repository.deleteOne({ Userid: req.params.Userid },
-                                                                                                    err => {
-                                                                                                        if (err) throw err;
-                                                                                                    }
-                                                                                                */
+                                                                                                                      err => {
+                                                                                                                          if (err) throw err;
+                                                                                                                      }
+                                                                                                                  */
             let deleteOne = await user_repository.deleteOne({ Email: req.params.Email },
                 err => {
                     if (err) throw err;
