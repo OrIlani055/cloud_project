@@ -10,8 +10,8 @@ route.post("/createUser", (req, res) => {
 route.get("/getAllUsers", (req, res) => {
     Usercontroller.getAll(req, res);
 });
-
-route.get("/getOneUser/:Userid", (req, res) => {
+/**
+ route.get("/getOneUser/:Userid", (req, res) => {
     Usercontroller.getID(req, res);
 });
 
@@ -20,6 +20,18 @@ route.put("/update/:Userid", (req, res) => {
 });
 
 route.delete("/deleteOneUser/:Userid", (req, res) => {
+    Usercontroller.deleteUser(req, res);
+});
+ */
+route.get("/getOneUser/:Email", (req, res) => {
+    Usercontroller.getID(req, res);
+});
+
+route.put("/update/:Email", (req, res) => {
+    Usercontroller.updateUser(req, res);
+});
+
+route.delete("/deleteOneUser/:Email", (req, res) => {
     Usercontroller.deleteUser(req, res);
 });
 //---------------------//

@@ -4,14 +4,22 @@ class UserController {
     static async createData(req, res) {
         try {
             let obj = user_repository({
-                Userid: req.body.Userid,
+                //Userid: req.body.Userid,
                 FirstName: req.body.FirstName,
                 LastName: req.body.LastName,
-                Age: req.body.Age,
+                Email: req.body.Email,
+                DateOfBirth: req.body.DateOfBirth,
                 HomeAddress: req.body.HomeAddress,
                 JobTitle: req.body.JobTitle,
-                JobAddress: req.body.JobAddress,
-                CurrentLocation: req.body.CurrentLocation
+                JobAddress: req.body.JobAddress
+                    //CurrentLocation: req.body.CurrentLocation
+                    /**   users from google api 
+                                                                            Token: req.body.Token,
+                                                                            Email: req.body.Email,
+                                                                            Provider: req.body.Provider,
+                                                                            Provide_id: req.body.Provide_id,
+                                                                            Provide_pic: req.body.Provide_pic
+                                                                            */
             });
             console.log(obj);
             await obj.save();
@@ -25,7 +33,10 @@ class UserController {
 
     static async getID(req, res) {
         try {
-            let data = await user_repository.find({ Userid: req.params.Userid },
+            let data = await user_repository.find({
+                    //Userid: req.params.Userid
+                    Email: req.params.Email
+                },
                 err => {
                     if (err) throw err;
                 }
@@ -53,7 +64,10 @@ class UserController {
 
     static async updateUser(req, res) {
         try {
-            let obj = await user_repository.find({ Userid: req.params.Userid },
+            let obj = await user_repository.find({
+                    //Userid: req.params.Userid
+                    Email: req.params.Email
+                },
                 err => {
                     if (err) throw err;
                 }
@@ -65,12 +79,16 @@ class UserController {
 
             if (req.body.FirstName) obj.FirstName = req.body.FirstName;
             if (req.body.LastName) obj.LastName = req.body.LastName;
-            if (req.body.Age) obj.Age = req.body.Age;
+            if (req.body.Email) obj.Email = req.body.Email;
+            if (req.body.DateOfBirth) obj.DateOfBirth = req.body.DateOfBirth;
             if (req.body.HomeAddress) obj.HomeAddress = req.body.HomeAddress;
             if (req.body.JobTitle) obj.JobTitle = req.body.JobTitle;
             if (req.body.JobAddress) obj.JobAddress = req.body.JobAddress;
 
-            let data = await user_repository.updateOne({ Userid: req.params.Userid },
+            let data = await user_repository.updateOne({
+                    //Userid: req.params.Userid
+                    Email: req.params.Email
+                },
                 obj,
                 err => {
                     if (err) throw err;
@@ -86,7 +104,12 @@ class UserController {
     static async deleteUser(req, res) {
         try {
             console.log(req.body);
-            let deleteOne = await user_repository.deleteOne({ Userid: req.params.Userid },
+            /** let deleteOne = await user_repository.deleteOne({ Userid: req.params.Userid },
+                                                    err => {
+                                                        if (err) throw err;
+                                                    }
+                                                */
+            let deleteOne = await user_repository.deleteOne({ Email: req.params.Email },
                 err => {
                     if (err) throw err;
                 }

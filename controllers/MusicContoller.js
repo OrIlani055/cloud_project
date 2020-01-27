@@ -5,7 +5,6 @@ class MusicController {
         try {
             let obj = music_repository({
                 //_id: req.body._id,
-
                 MusicGenres1: req.body.MusicGenres1,
                 MusicGenres2: req.body.MusicGenres2,
                 MusicGenres3: req.body.MusicGenres3,
