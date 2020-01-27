@@ -36,23 +36,23 @@ route.delete("/deleteOneUser/:Email", (req, res) => {
 });
 //---------------------//
 route.post("/createMusic", (req, res) => {
-    Musiccontroller.createMusicData(req, res);
+    Usercontroller.createMusicData(req, res);
 });
 
 route.get("/getAllMusic", (req, res) => {
-    Musiccontroller.getAllMusic(req, res);
+    Usercontroller.getAllMusic(req, res);
 });
 
-route.get("/getOneUserInformationOnGenres/:UseridM", (req, res) => {
-    Musiccontroller.getIDMusic(req, res);
+route.get("/getOneUserInformationOnGenres/:Email", (req, res) => {
+    Usercontroller.getIDMusic(req, res);
 });
 
-route.put("/updateGenres/:UseridM", (req, res) => {
-    Musiccontroller.updateMusic(req, res);
+route.put("/updateGenres/:Email", (req, res) => {
+    Usercontroller.updateMusic(req, res);
 });
 
-route.delete("/deleteOneGenre/:UseridM", (req, res) => {
-    Musiccontroller.deleteMusic(req, res);
+route.delete("/deleteOneGenre/:Email", (req, res) => {
+    Usercontroller.deleteMusic(req, res);
 });
 
 route.get("/", (req, res) => {

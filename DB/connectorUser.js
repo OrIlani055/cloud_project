@@ -13,6 +13,16 @@ mongoose
 
 const { Schema, model } = require("mongoose");
 
+// const musicPrefSchema = new Schema({
+//     //UseridM: { type: Number },
+//     MusicGenres1: { type: String },
+//     MusicGenres2: { type: String },
+//     MusicGenres3: { type: String },
+//     MusicGenres4: { type: String }
+// });
+
+// const musicPref = model("musicPref", musicPrefSchema);
+
 const userSchema = new Schema({
     //Userid: { type: Number },
     FirstName: { type: String },
@@ -21,18 +31,25 @@ const userSchema = new Schema({
     DateOfBirth: { type: Date },
     HomeAddress: { type: String },
     JobTitle: { type: String },
-    JobAdress: { type: String }
-    //CurrentLocation: { type: String }
+    JobAdress: { type: String },
+    musicPref: {
+        MusicGenres1: String,
+        MusicGenres2: String,
+        MusicGenres3: String,
+        MusicGenres4: String
+    }
+}, { collection: "users" });
 
-    /** users from google api 
-            Name: { type: String },
-            Token: { type: Number },
-            Email: { type: String },
-            Provider: { type: String },
-            Provide_id: { type: Number },
-            Provide_pic: { type: Number }
-            */
-});
+//CurrentLocation: { type: String }
+
+/** users from google api 
+                                        Name: { type: String },
+                                        Token: { type: Number },
+                                        Email: { type: String },
+                                        Provider: { type: String },
+                                        Provide_id: { type: Number },
+                                        Provide_pic: { type: Number }
+                                        */
 
 const user = model("user", userSchema);
 
