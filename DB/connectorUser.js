@@ -31,7 +31,7 @@ const userSchema = new Schema({
     DateOfBirth: { type: Date },
     HomeAddress: { type: String },
     JobTitle: { type: String },
-    JobAdress: { type: String },
+    JobAddress: { type: String },
     musicPref: {
         MusicGenres1: String,
         MusicGenres2: String,
