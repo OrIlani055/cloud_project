@@ -11,9 +11,9 @@ var port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get("/welcome", (req, res) => {
-    res.send("welcome");
-});
+// app.get("/welcome", (req, res) => {
+//     res.send("welcome");
+// });
 
 app.use("/", route);
 
