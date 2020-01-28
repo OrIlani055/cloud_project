@@ -1,6 +1,7 @@
 const route = require("express").Router();
 
 const Usercontroller = require("../controllers/UserController");
+const Googlecontroller = require("../controllers/GoogleController");
 
 route.post("/createUser", (req, res) => {
     Usercontroller.createData(req, res);
@@ -8,6 +9,10 @@ route.post("/createUser", (req, res) => {
 
 route.get("/getAllUsers", (req, res) => {
     Usercontroller.getAll(req, res);
+});
+
+route.get("/google", (req, res) => {
+    Googlecontroller.startauth();
 });
 
 route.get("/getOneUser/:Email", (req, res) => {

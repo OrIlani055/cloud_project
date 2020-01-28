@@ -5,7 +5,7 @@ const route = require("./routes/api");
 const googlecon = require("./controllers/GoogleController");
 var app = express();
 
-googlecon.startauth();
+//googlecon.startauth();
 
 var port = process.env.PORT || 3000;
 
