@@ -24,7 +24,7 @@ const { Schema, model } = require("mongoose");
 // const musicPref = model("musicPref", musicPrefSchema);
 
 const userSchema = new Schema({
-    //Userid: { type: Number },
+    //_id: { type: Number },
     FirstName: { type: String },
     LastName: { type: String },
     Email: { type: String },
@@ -37,19 +37,20 @@ const userSchema = new Schema({
         MusicGenres2: String,
         MusicGenres3: String,
         MusicGenres4: String
+            /**location  
+    CurrentLocation: { type: String }
+    */
     }
 }, { collection: "users" });
 
-//CurrentLocation: { type: String }
-
 /** users from google api 
-                                        Name: { type: String },
-                                        Token: { type: Number },
-                                        Email: { type: String },
-                                        Provider: { type: String },
-                                        Provide_id: { type: Number },
-                                        Provide_pic: { type: Number }
-                                        */
+    Name: { type: String },
+    Token: { type: Number },
+    Email: { type: String },
+    Provider: { type: String },
+    Provide_id: { type: Number },
+    Provide_pic: { type: Number }
+    */
 
 const user = model("user", userSchema);
 
